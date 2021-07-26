@@ -1,0 +1,31 @@
+#include <iostream>
+#include "..\..\std_lib_facilities.h"
+
+int main()
+{
+	double max_number = 0;	// Variable to track the maxomum number
+	double min_number = 0;	// Variable to track the minimum number
+	double last_number = 0;	// Variable to track the last entered number
+	int count = 0;			// count to handle first entered number
+	cout << "Please enter a number:\n";
+	while (cin >> last_number)
+	{
+		if (count == 0)
+		{
+			cout << last_number << " - The first entered number." << '\n';
+			max_number = last_number;
+			min_number = last_number;
+			++count;
+		}
+		else if (last_number < min_number)
+		{
+			cout << last_number << " - The smallest entered number." << '\n';
+			min_number = last_number;
+		}
+		else if (last_number > max_number)
+		{
+			cout << last_number << " - The largest number" << '\n';
+			max_number = last_number;
+		}
+	}
+}
