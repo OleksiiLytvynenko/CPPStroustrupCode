@@ -40,6 +40,8 @@ int main()
 	double last_number = 0;	// Variable to track the last entered number
 	string unit = " ";			// Variable for units.
 	int count = 0;			// count to handle first entered number
+	double total = 0;		// variable to track the total amount of entered numbers
+	int quantity = 0;		// variable to track the quantity of entered numbers
 
 	cout << "Please enter a number and a unit (cm, m, in, ft), separated by space:\n";
 	while (cin >> last_number >> unit)
@@ -50,16 +52,24 @@ int main()
 			max_number = convert_to_mts(last_number, unit);
 			min_number = convert_to_mts(last_number, unit);
 			++count;
+			++quantity;
 		}
 		else if ((convert_to_mts(last_number, unit) < min_number) && (valid_unit(unit) == true))
 		{
 			cout << last_number << unit << " (" << convert_to_mts(last_number, unit) << "m)" << " - The smallest entered number." << '\n';
 			min_number = convert_to_mts(last_number, unit);
+			++quantity;
 		}
 		else if ((convert_to_mts(last_number, unit) > max_number) && (valid_unit(unit) == true))
 		{
 			cout << last_number << unit << " (" << convert_to_mts(last_number, unit) << "m)" << " - The largest entered number" << '\n';
 			max_number = convert_to_mts(last_number, unit);
+			++quantity;
+		}
+		else if (valid_unit(unit) == true)
+		{
+			cout << last_number << unit << " (" << convert_to_mts(last_number, unit) << "m)" << '\n';
+			++quantity;
 		}
 		else
 			cout << "Invalid unit. Please enter valid unit (cm, m, in, ft)" << '\n';
