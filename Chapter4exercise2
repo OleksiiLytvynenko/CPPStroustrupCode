@@ -1,0 +1,25 @@
+#include <iostream>
+#include "..\..\std_lib_facilities.h"
+using namespace std;
+
+int main()
+{
+    vector<double> temps;   // Temprature
+    for (double temp; cin >> temp; )  // reading to temp
+        temps.push_back(temp);  // adding temp to a vector
+
+    // Calculation of an avarage temperature:
+    double sum = 0;
+    for (int x : temps) sum += x;
+    cout << "Avarage temperature: "
+        << sum / temps.size() << '\n';
+
+    // Calculation of a median temperature:
+    sort(temps);    // Sorting of a vector of temperatures
+    if (temps.size() % 2 == 0)
+        cout << "Median temperature1: "
+        << (temps[temps.size() / 2 - 1] + temps[temps.size() / 2]) / 2 << '/n';
+    else
+        cout << "Median temperature2: "
+        << temps[temps.size() / 2] << '/n';
+}
