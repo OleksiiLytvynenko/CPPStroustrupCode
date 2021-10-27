@@ -1,0 +1,16 @@
+int main()
+{
+    vector<double> distances;   //vector for distances between cities
+    for (double distance; cin >> distance; ) //read distances to the vector
+        distances.push_back(distance);
+    //calculate total distance
+    double sum = 0;
+    for (double x : distances) sum += x;
+    cout << "Total distance between cities: " << sum << "\n";
+    //calculate min and max distance between cities
+    sort(distances);
+    cout << "Min distance between cities: " << distances[0] << "\n";
+    cout << "Min distance between cities: " << distances[distances.size()-1] << "\n";
+    //calculate average distance between cities
+    cout << "Average distance between cities: " << sum / distances.size() << "\n";
+}
